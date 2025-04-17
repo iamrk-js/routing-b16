@@ -1,1 +1,31 @@
-<p>products works!</p>
+
+<div class="row">
+    <div class="col-12 mb-4 text-right">
+        <button 
+        routerLink="/products/addproduct"
+        class="btn btn-outline-info">Add Product</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            <!-- <li 
+            [routerLink]="['/products', prod.pid]"
+            class="list-group-item" *ngFor="let prod of productsArr">
+                {{prod.pname}}   {{prod.pid}}
+            </li> -->
+
+            <li 
+            [routerLink]="[prod.pid]"
+            class="list-group-item" *ngFor="let prod of productsArr">
+                {{prod.pname}}   {{prod.pid}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- // baseUrl/products/pid 
+    currentUrl = baseUrl/products
+    currentUrl/pid
+-->

@@ -1,0 +1,47 @@
+<!-- <h2 *ngIf="!isInEditMode">Add Product</h2>
+<h2  *ngIf="isInEditMode">Update Product</h2> -->
+
+<h2>
+  {{ isInEditMode ? "Update Product" : "Add Product" }}
+</h2>
+
+<form #productForm="ngForm" (ngSubmit)="onProductSubmit()">
+  <div class="form-group">
+    <label for="pname">Product Name</label>
+    <input
+      ngModel
+      required
+      name="pname"
+      type="text"
+      id="pname"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="pstatus">Product Status</label>
+    <select ngModel required name="pstatus" id="pstatus" class="form-control">
+      <option value="In-progress">In-progress</option>
+      <option value="Dispatched">Dispatched</option>
+      <option value="Delivered">Delivered</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="canReturn">Product canReturn</label>
+    <select
+      ngModel
+      required
+      name="canReturn"
+      id="canReturn"
+      class="form-control"
+    >
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-info">
+    {{ isInEditMode ? "Update Product" : "Add Product" }}
+  </button>
+</form>

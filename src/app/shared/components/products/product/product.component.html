@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card" *ngIf="prodId; else noProduct">
+      <div class="card-body">
+        The Product is {{product.pname}}
+      </div>
+      <div class="card-footer">
+
+        <!-- <button 
+        [routerLink]="['/products',prodId, 'edit']"
+        class="btn btn-sm btn-outline-info mr-3">Edit</button> -->
+
+        <button 
+        routerLink="edit"
+        class="btn btn-sm btn-outline-info mr-3">Edit</button>
+
+        <button 
+        (click)="onRemove()"
+        class="btn btn-sm btn-outline-danger">Remove</button>
+      </div>
+    </div>
+
+    <ng-template #noProduct>
+      <p class="alert alert-info">No Product !!</p>
+    </ng-template>
+  </div>
+</div>
+
+
+<!-- // http://localhost:4200/products/123/edit 
+ 
+    cuurentUrl == http://localhost:4200/products/123
+
+    cuurentUrl/edit
+-->
