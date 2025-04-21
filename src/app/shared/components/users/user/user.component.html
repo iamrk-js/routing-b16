@@ -1,7 +1,30 @@
-<p>
-  <!-- {{ userId }} -->
-  {{ userObj | json }}
-</p>
+<div class="row">
+  <div class="col-md-4" *ngIf="userId;else noUSer">
+    <div class="card">
+      <div class="card-header">
+        <h2>{{ userObj.userName }}</h2>
+      </div>
+      <div class="card-body">
+        The user is having userrole {{ userObj.userRole }}
+      </div>
+      <div class="card-footer">
+        <button
+        routerLink="edit"
+        class="btn btn-outline-info btn-sm mr-3">Edit</button>
+
+        <button 
+        (click)="onUserRemove()"
+        class="btn btn-outline-danger btn-sm">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noUSer>
+    <p class="alert alert-info col-12">
+      No User Data !!!
+    </p>
+  </ng-template>
+</div>
 
 <!-- <button [routerLink]="['/users', 125]" class="btn btn-outline-info">
   Load Info of May

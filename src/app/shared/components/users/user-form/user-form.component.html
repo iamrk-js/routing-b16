@@ -1,1 +1,34 @@
-<p>user-form works!</p>
+
+<h3>
+    {{isInEditMode ? 'Update User' : 'Add User'}}
+</h3>
+
+
+<form [formGroup]="userForm" (ngSubmit)="onUserSubmit()">
+    <div class="form-group">
+        <label for="userName">User Name</label>
+        <input
+        formControlName="userName"
+        type="text" class="form-control" id="userName">
+    </div>
+    <div class="form-group">
+        <label for="userRole">User Name</label>
+        <select 
+        formControlName="userRole"
+        class="form-control" 
+        id="userRole">
+        <option value="Candidate">Candidate</option>
+        <option value="Admin">Admin</option>
+        <option value="Supar-Admin">Supar-Admin</option>
+        </select>
+    </div>
+
+    <button
+    [disabled]="userForm.invalid"
+    type="submit" class="btn btn-primary">
+        {{isInEditMode ? 'Update User' : 'Add User'}}
+    </button>
+</form>
+
+{{userForm.value | json}} <br>
+isValid : {{userForm.valid}}

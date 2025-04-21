@@ -2,7 +2,9 @@
 
 <div class="row">
     <div class="col-12 text-right mb-4">
-        <button class="btn btn-info">Add User</button>
+        <button
+        routerLink="adduser"
+        class="btn btn-info">Add User</button>
     </div>
 </div>
 
@@ -13,7 +15,7 @@
             routerLink="{{user.userId}}"
             *ngFor="let user of usersArr"
             class="list-group-item">
-                {{user.userName}} {{user.userId}}
+                {{user.userName}}
             </li>
         </ul>
     </div>
